@@ -1,0 +1,116 @@
+header{
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 115px;
+    width: 100%;
+    padding: 0 20px 20px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 -25px 20px -30px inset;
+}
+
+header .header-logo-name{
+    height: 100%;
+    display: flex;
+    align-items: end;
+    background-color: transparent;
+    width: 20%;
+}
+
+header .header-name{
+    font-family: Arial, serif;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-part{
+    color: #222222;
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.bot-part{
+    color: #787878;
+    font-style: italic;
+    font-size: 1.15vw;
+}
+
+header .header-logo{
+    margin-bottom: -20px;
+    min-width: 5vw;
+}
+
+header .header-logo img{
+    width:5vw;
+}
+
+.search-account{
+    margin-bottom: -5px;
+    height: 35px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search{
+    margin-left: 3vw;
+    height: 100%;
+    align-items: end;
+    display: flex;
+}
+
+.search .search-bar-text{
+    margin-bottom: 5px;
+    font-size: 1vw;
+    min-font-size: 1vw;
+    font-weight: 700;
+}
+
+.search .search-bar{
+    outline: none;
+    margin-left: 15px;
+    height: 35px;
+    width: 30vw;
+    box-shadow: rgb(0, 0, 0, 0.3) 2px 2px 2px 0 inset;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search .search-bar-button{
+    height: 35px;
+    padding: 0 8px;
+    border: solid 1px rgb(0, 0, 0, 0.3);
+    background: #f5f5f5;
+    border-radius: 0 4px 4px 0;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 -26px 20px -30px inset;
+}
+
+.search .search-bar-button span{
+    font-size: 14px;
+}
+
+.account{
+    display: flex;
+    /*background: #116a00;*/
+    height: 100%;
+}
+
+.greetings-text-nav-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    /*background: #a72e2e;*/
+}
+
+.vertical-separator{
+    margin: 0 10px;
+    height: 100%;
+    width: 2px;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+}

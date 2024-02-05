@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.text{
+    border: 2px solid #4160a7;
+    padding: 10px 20px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+    font-size: 35px;
+    color: #4160a7;
+    /*background: #a72e2e;*/
+}

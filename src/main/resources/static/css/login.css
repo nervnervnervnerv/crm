@@ -14,7 +14,6 @@ body{
 
 .error{
     position: absolute;
-    /*top: 30%;*/
     transform: translateY(-140%);
     padding: 10px 45px;
     text-align: center;
@@ -24,6 +23,18 @@ body{
     background: #e58f8f;
     color: #940d15;
     border: 2px solid #a72e2e;
+}
+
+.logout{
+    position: absolute;
+    transform: translateY(-140%);
+    padding: 10px 45px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    background: #dff1d9;
+    color: #407c47;
+    border: 2px solid #407c47;
 }
 
 .center{

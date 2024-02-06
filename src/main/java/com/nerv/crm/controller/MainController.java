@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @AllArgsConstructor
 @Controller
-public class HomeController {
+public class MainController {
     UserRepository userRepository;
-    @GetMapping("/home")
-    public String home() {
+    @GetMapping("/")
+    public String mainPage() {
         //managersRepository.save(new Manager(1L,"firstname","lastname","username","password", Role.ROLE_ADMIN));
 
         userRepository.findAll().forEach(System.out::println);
-        return "home";
+        return "main";
     }
 
 }

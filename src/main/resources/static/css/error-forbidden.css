@@ -6,6 +6,9 @@ body {
     height: 100vh;
     margin: 0;
 }
+.error{
+    width: 30vw;
+}
 
 .text{
     border: 2px solid #4160a7;
@@ -13,15 +16,34 @@ body {
 }
 
 .buttons{
+    width: 18vw;
+    margin: 20px auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-p {
+.buttons a{
+    width: max-content;
+    padding: 0;
+}
+
+.buttons a:visited{
+    color: #3d5a9c;
+}
+
+.buttons a:active{
+    color: #5477df;
+}
+
+.text p{
     text-align: center;
-    font-size: 35px;
+    font-size: 2vw;
     color: #4160a7;
     /*background: #a72e2e;*/
+}
+
+
+.buttons a{
+    font-size: 2vw;
 }

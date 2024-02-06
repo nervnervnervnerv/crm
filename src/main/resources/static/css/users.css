@@ -1,5 +1,5 @@
 *{
-    font-family: Arial, serif;
+    font-family: "MS UI Gothic", serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,74 +15,105 @@ body{
 
 main {
     width: 100%;
-    /*margin-right: 20px;*/
     margin-top: 115px;
     margin-left: 270px;
-    padding: 20px 50px;
     display: flex;
-    flex-direction: column;
-    /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);*/
-    /*box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;}*/
 }
 .table-tabs{
+
+    width: max-content;
 }
 
 table{
     border-spacing: 0;
     border-collapse: collapse;
 }
-table,th,td{
-    padding: 8px 50px 8px 10px;
-
+th,td{
+    padding: 20px 20px 20px 40px;
 }
 
 th {
     text-align: left;
-    color: #f5f5f5;
+    color: #0470e3;
     font-size: 14px;
 }
 
+thead{
+    background: #3d5a9c;
+
+}
 
 .table-value{
     background: #f1f1f1;
 }
 
-thead{
-    background: #116a00;
+.add-user{
+    height: 500px;
+    margin-left:auto;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.add-user-text{
+    background: rgb(122,170,224);
+    background: linear-gradient(0deg, rgba(122,170,224,1) 0%, rgba(98,141,189,1) 100%);
+    padding: 10px;
+    text-align: center;
+}
+
+.add-user-form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.user-option-field{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-option-field input{
+    height: 30px;
+    outline: none;
+    padding-left: 5px;
 }
 
 select{
+    height: 30px;
     cursor: pointer;
 }
 
-section.button-add-manager{
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
+.input-text{
+    padding-bottom: 5px;
 }
 
-.button-add-manager .button{
-    display: inline-flex;
-    height: 25px;
-    padding:0;
-    border: 1px solid #929292;
-    background: #f1f1f1;
+/*.button-add-manager{*/
+/*
+/*    height: 30px;*/
+/*    width: 50%;*/
+/*}*/
+
+.button-add-manager {
+    text-align: center;
+    margin: 20px auto;
+    touch-action: manipulation;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background-color: #f0f7fa;
+    box-shadow: inset 0 -4px 8px #87bfd8, 0 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
+    color: #0470e3;
+    transition: transform 0.4s cubic-bezier(0.55, 1, 0.15, 1);
+    will-change: transform;
 }
 
-.button-add-manager .button-text{
-    display: inline-flex;
-    padding: 0 24px;
-    align-items: center;
-    height: 100%;
+.button-add-manager:active {
+    transform: scale(0.98);
 }
-
-
-
-
-
-
-
+.button-add-manager:active::after {
+    opacity: 1;
+}

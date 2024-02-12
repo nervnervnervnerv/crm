@@ -1,6 +1,5 @@
 package com.nerv.crm.controller;
 
-import com.nerv.crm.repository.UserRepository;
 import com.nerv.crm.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

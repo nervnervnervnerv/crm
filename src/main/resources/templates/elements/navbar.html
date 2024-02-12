@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar</title>
+</head>
+<body>
+<nav class="navbar-left" th:fragment="navbar-left">
+
+    <div class="nav-buttons">
+        <a class="nav-link" href="#">
+            <div class="image">
+                <span>База</span>
+            </div>
+        </a>
+
+        <a class="nav-link" href="#">
+            <div class="image">
+                <span>Статистика</span>
+            </div>
+        </a>
+
+        <a class="nav-link" href="#">
+            <div class="image">
+                <span>Документы</span>
+            </div>
+        </a>
+    </div>
+</nav>
+
+<nav class="navbar-right" th:fragment="navbar-right">
+</nav>
+</body>
+</html>

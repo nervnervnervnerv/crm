@@ -38,7 +38,7 @@ public class WebSecurityConfig {
                 .loginPage("/login")
                 .permitAll()
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 );

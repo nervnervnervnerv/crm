@@ -25,6 +25,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/css/**").permitAll()
                 .requestMatchers("/img/**").permitAll()
                 .requestMatchers("/users").hasRole("ADMIN")
+                .requestMatchers("/h2-console").permitAll()
                 .requestMatchers("/errors/**").permitAll()
                 .requestMatchers("/**").authenticated());
 

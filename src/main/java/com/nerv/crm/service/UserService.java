@@ -18,8 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class UserService implements UserDetailsService {
-//    @PersistenceContext
-//    private EntityManager em;
     private UserRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 

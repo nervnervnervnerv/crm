@@ -1,0 +1,23 @@
+.sidebar-right{
+    height: 100%;
+    min-width: 240px;
+}
+
+.splitter{
+    width: 1px;
+    height: 100%;
+    background: #929292;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.splitter:after{
+    content: "";
+    display: block;
+    height: 100%;
+    width: 9px;
+    position: absolute;
+    z-index: 10;
+    cursor: ew-resize;
+    user-select: none;
+}

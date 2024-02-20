@@ -1,9 +1,6 @@
 package com.nerv.crm.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -22,13 +19,9 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @NotEmpty(message = "User's age cannot be null.")
     private String firstName;
-    @NotEmpty(message = "User's age cannot be null.")
     private String lastName;
-    @NotEmpty(message = "User's age cannot be null.")
     private String username;
-    @NotEmpty(message = "User's age cannot be null.")
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;

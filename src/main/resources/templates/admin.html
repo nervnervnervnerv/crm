@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="UTF-8">
+  <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/root.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/sidebar.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="root">
+  <nav th:replace="~{elements/header:: header}"></nav>
+  <div class="content">
+    <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
+      <div class="wrapper">
+          <main class="main-content">
+              <section class="table-container">
+                  <dialog>
+                      <div class="add-form-wrapper">
+                          <div class="header-panel">
+                              <span>Новый Пользователь:</span>
+                          </div>
+                          <form action="/admin/add" method="post">
+                              <div class="first-input-row">
+                                  <label>
+                                      <span>Имя</span>
+                                      <input class="input-data" type="text" name="firstName">
+                                  </label>
+                                  <label>
+                                      <span>Фамилия</span>
+                                      <input class="input-data" type="text" name="lastName">
+                                  </label>
+                              </div>
+
+                              <div class="second-input-row">
+                                  <label>
+                                      <span>Логин</span>
+                                      <input class="input-data" type="text" name="username">
+                                  </label>
+                                  <label>
+                                      <span>Пароль</span>
+                                      <input class="input-data" type="text" name="password">
+                                  </label>
+                              </div>
+
+                              <div class="third-input-row">
+                                  <label>
+                                      <span>Роль</span>
+                                      <select class="input-data" name="role">
+                                          <option th:each="role : ${T(com.nerv.crm.model.Role).values()}"
+                                                  th:value="${role}" th:text="${role}"></option>
+                                      </select>
+                                  </label>
+                              </div>
+                              <input type="hidden" name="action" value="add"/>
+
+                              <div class="buttons-wrapper">
+                                  <button autofocus type="reset">Назад</button>
+                                  <button class="button-save-user" type="submit">Сохранить</button>
+                              </div>
+                          </form>
+                      </div>
+
+                  </dialog>
+
+                  <button class="button-add-user">Добавить</button>
+                  <div class="table">
+                      <div class="thead">
+                          <div class="tr">
+                              <div class="th">Роль</div>
+                              <div class="th">Логин</div>
+                              <div class="th">Имя</div>
+                              <div class="th">Фамилия</div>
+                              <div class="th">Действия</div>
+                          </div>
+                      </div>
+                      <div class="tbody">
+                          <div class="tr" th:each="user : ${users}">
+                              <div class="td" th:text="${user.getRole()}"></div>
+                              <div class="td" th:text="${user.getUsername()}"></div>
+                              <div class="td" th:text="${user.getFirstName()}"></div>
+                              <div class="td" th:text="${user.getLastName()}"></div>
+                              <div class="td">
+                                  <form th:action="${'/admin/delete/' + user.getId()}" method="post">
+                                      <input type="hidden" name="id" th:value="${user.id}"/>
+                                      <input type="hidden" name="action" value="delete"/>
+                                      <button class="button-delete-user" type="submit">Delete</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </main>
+          <div class="splitter" ></div>
+          <div th:replace="~{elements/sidebar:: sidebar-right}"></div>
+      </div>
+  </div>
+</div>
+<script th:src="@{/js/resize.js}"> </script>
+<script th:src="@{/js/resize-observer.js}"> </script>
+<script th:src="@{/js/dialog.js}"> </script>
+</body>
+</html>

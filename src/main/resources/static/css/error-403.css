@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.error{
+    width: 30vw;
+}
+
+.text-container{
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(180deg, rgba(149,0,255,1) 0%, rgba(0,255,255,1) 33%, rgba(255,255,0,1) 66%, rgba(200,0,254,1) 100%) border-box;
+    border: 4px solid transparent;
+    padding: 10px 20px;
+}
+
+.text-container p{
+    text-align: center;
+    font-size: 2vw;
+    color: #372fbe;
+}
+
+.buttons-container{
+    width: 18vw;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.buttons-container a{
+    width: max-content;
+    padding: 0;
+}
+
+.buttons-container a, :visited, :active{
+    font-size: 2vw;
+    color: #87c3ff;
+}

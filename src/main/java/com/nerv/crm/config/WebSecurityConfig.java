@@ -24,12 +24,14 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/css/**").permitAll()
                 .requestMatchers("/img/**").permitAll()
-                .requestMatchers("/users").hasRole("ADMIN")
-                .requestMatchers("/h2-console").permitAll()
+                .requestMatchers("/js/**").permitAll()
                 .requestMatchers("/errors/**").permitAll()
-                .requestMatchers("/**").authenticated());
+                .requestMatchers("/**").authenticated()
+        );
 
-        http.exceptionHandling((exception)-> exception.accessDeniedPage("/error/forbidden"));
+//        http.exceptionHandling((exception)-> exception
+//                .accessDeniedPage("/error/forbidden")
+//        );
 
 
         http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
@@ -40,11 +42,9 @@ public class WebSecurityConfig {
                 .permitAll()
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/")
-                .usernameParameter("username")
-                .passwordParameter("password")
                 );
 
-        http.logout(log -> log
+        http.logout(logout -> logout
                 .logoutUrl("/logout")
                 .clearAuthentication(true)
                 .invalidateHttpSession(true)

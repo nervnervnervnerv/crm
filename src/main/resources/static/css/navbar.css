@@ -1,7 +1,7 @@
 .navbar-left{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 240px;
     height: 100%;
 }
 
@@ -10,8 +10,9 @@
 }
 
 .nav-link{
-    width: 100%;
-    margin-bottom: 20px;
+    width: 210px;
+    height: 35px;
+    margin-bottom: 10px;
     align-items: center;
     position: relative;
     display: flex;
@@ -32,8 +33,10 @@
 .image{
     display: flex;
     align-items: center;
-    width: 270px;
-    height: 45px;
+    /*width: 208px;*/
+    /*height: 35px;*/
+    width: 100%;
+    height: 100%;
     background: url("../img/system/button.png") no-repeat;
     background-size: contain;
 }

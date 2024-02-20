@@ -3,10 +3,10 @@
 <head>
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="UTF-8">
-    <meta content="width=de">
-    <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css" >
-    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css" >
-    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css" >
+    <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/root.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="root">
@@ -15,35 +15,6 @@
         <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
         <nav th:replace="~{elements/navbar:: navbar-right}"></nav>
         <main>
-            <!--        <section class="table-tabs">-->
-            <!--            <table>-->
-            <!--                <thead>-->
-            <!--                <tr>-->
-            <!--                    <th>Роль</th>-->
-            <!--                    <th>Логин</th>-->
-            <!--                    <th>Имя</th>-->
-            <!--                    <th>Фамилия</th>-->
-            <!--                </tr>-->
-            <!--                </thead>-->
-            <!--                <tbody>-->
-            <!--                <tr th:each="user : ${users}">-->
-            <!--                    <td class="table-value" th:text="${user.getRole()}"></td>-->
-            <!--                    <td class="table-value" th:text="${user.getUsername()}"></td>-->
-            <!--                    <td class="table-value" th:text="${user.getFirstName()}"></td>-->
-            <!--                    <td class="table-value" th:text="${user.getLastName()}"></td>-->
-            <!--                    <td>-->
-            <!--                        <form action="/users/delete" method="post">-->
-            <!--                            <input type="hidden" name="id" th:value="${user.id}"/>-->
-            <!--                            <input type="hidden" name="action" value="delete"/>-->
-            <!--                            <button class="button-delete-user" type="submit">Delete</button>-->
-            <!--                            &lt;!&ndash;                            <i th:replace="~{icons :: icon-delete}"></i>&ndash;&gt;-->
-            <!--                            &lt;!&ndash;                            <i th:replace="~{icons :: icon-edit}"></i>&ndash;&gt;-->
-            <!--                        </form>-->
-            <!--                    </td>-->
-            <!--                </tr>-->
-            <!--                </tbody>-->
-            <!--            </table>-->
-            <!--        </section>-->
         </main>
     </div>
 </div>

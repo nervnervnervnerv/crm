@@ -12,3 +12,8 @@ spring:
     url: jdbc:h2:file:./db
     username: asd
     password: asd
+server:
+  error:
+    whitelabel:
+      enabled: false
+    path: /error

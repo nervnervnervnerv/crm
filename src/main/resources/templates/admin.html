@@ -11,96 +11,111 @@
 </head>
 <body>
 <div class="root">
-  <nav th:replace="~{elements/header:: header}"></nav>
-  <div class="content">
-    <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
-      <div class="wrapper">
-          <main class="main-content">
-              <section class="table-container">
-                  <dialog>
-                      <div class="add-form-wrapper">
-                          <div class="header-panel">
-                              <span>Новый Пользователь:</span>
-                          </div>
-                          <form action="/admin/add" method="post">
-                              <div class="first-input-row">
-                                  <label>
-                                      <span>Имя</span>
-                                      <input class="input-data" type="text" name="firstName">
-                                  </label>
-                                  <label>
-                                      <span>Фамилия</span>
-                                      <input class="input-data" type="text" name="lastName">
-                                  </label>
-                              </div>
+    <div class="wrapper-left-area">
+        <nav th:replace="~{elements/header:: header}"></nav>
+        <div class="group-navbar-main">
+            <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
+            <main class="main-content">
+                <section class="table-container">
+                    <dialog>
+                        <div class="add-form-wrapper">
+                            <div class="header-panel">
+                                <span>Новый Пользователь:</span>
+                            </div>
+                            <form action="/admin/add" method="post">
+                                <div class="first-input-row">
+<!--                                    TODO сделать лейб фор  обертку инпут снизу месседж и стиль-->
+                                    <div class="input-wrapper">
+                                        <label for="firstname-input">
+                                            <span>Имя</span>
+                                        </label>
+                                        <input class="input-field" id="firstname-input" type="text" name="firstName" autocomplete="off">
+                                        <div id="firstname-err" role="alert">
+                                        </div>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <label for="lastname-input">
+                                            <span>Фамилия</span>
+                                        </label>
+                                        <input class="input-field" id="lastname-input" type="text" name="lastName" autocomplete="off">
+                                        <div id="lastname-err" role="alert">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="second-input-row">
+                                    <div class="input-wrapper">
+                                        <label for="username-input">
+                                            <span>Логин</span>
+                                        </label>
+                                        <input class="input-field" id="username-input"  type="text" name="username" autocomplete="off" aria-required="true">
+                                        <div id="username-err" role="alert">
+                                        </div>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <label for="password-input">
+                                            <span>Пароль</span>
+                                        </label>
+                                        <input class="input-field" id="password-input" type="password" name="password" autocomplete="off">
+                                        <div id="password-err" role="alert">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="third-input-row">
+                                    <label>
+                                        <span>Роль</span>
+                                        <select class="input-field" name="role">
+                                            <option th:each="role : ${T(com.nerv.crm.model.Role).values()}"
+                                                    th:value="${role}" th:text="${role}"></option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <input type="hidden" name="action" value="add"/>
+                                <div class="buttons-wrapper">
+                                    <button type="reset">Назад</button>
+                                    <button id="submit-b" type="submit">Сохранить</button>
+                                </div>
+                            </form>
+                        </div>
+                    </dialog>
 
-                              <div class="second-input-row">
-                                  <label>
-                                      <span>Логин</span>
-                                      <input class="input-data" type="text" name="username">
-                                  </label>
-                                  <label>
-                                      <span>Пароль</span>
-                                      <input class="input-data" type="text" name="password">
-                                  </label>
-                              </div>
-
-                              <div class="third-input-row">
-                                  <label>
-                                      <span>Роль</span>
-                                      <select class="input-data" name="role">
-                                          <option th:each="role : ${T(com.nerv.crm.model.Role).values()}"
-                                                  th:value="${role}" th:text="${role}"></option>
-                                      </select>
-                                  </label>
-                              </div>
-                              <input type="hidden" name="action" value="add"/>
-
-                              <div class="buttons-wrapper">
-                                  <button autofocus type="reset">Назад</button>
-                                  <button class="button-save-user" type="submit">Сохранить</button>
-                              </div>
-                          </form>
-                      </div>
-
-                  </dialog>
-
-                  <button class="button-add-user">Добавить</button>
-                  <div class="table">
-                      <div class="thead">
-                          <div class="tr">
-                              <div class="th">Роль</div>
-                              <div class="th">Логин</div>
-                              <div class="th">Имя</div>
-                              <div class="th">Фамилия</div>
-                              <div class="th">Действия</div>
-                          </div>
-                      </div>
-                      <div class="tbody">
-                          <div class="tr" th:each="user : ${users}">
-                              <div class="td" th:text="${user.getRole()}"></div>
-                              <div class="td" th:text="${user.getUsername()}"></div>
-                              <div class="td" th:text="${user.getFirstName()}"></div>
-                              <div class="td" th:text="${user.getLastName()}"></div>
-                              <div class="td">
-                                  <form th:action="${'/admin/delete/' + user.getId()}" method="post">
-                                      <input type="hidden" name="id" th:value="${user.id}"/>
-                                      <input type="hidden" name="action" value="delete"/>
-                                      <button class="button-delete-user" type="submit">Delete</button>
-                                  </form>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </section>
-          </main>
-          <div class="splitter" ></div>
-          <div th:replace="~{elements/sidebar:: sidebar-right}"></div>
-      </div>
-  </div>
+                    <button class="button-add-user">Добавить</button>
+                    <div class="table">
+                        <div class="thead">
+                            <div class="tr">
+                                <div class="th">Роль</div>
+                                <div class="th">Логин</div>
+                                <div class="th">Имя</div>
+                                <div class="th">Фамилия</div>
+                                <div class="th">Действия</div>
+                            </div>
+                        </div>
+                        <div class="tbody">
+                            <div class="tr" th:each="user : ${users}">
+                                <div class="td" th:text="${user.getRole()}"></div>
+                                <div class="td" th:text="${user.getUsername()}"></div>
+                                <div class="td" th:text="${user.getFirstName()}"></div>
+                                <div class="td" th:text="${user.getLastName()}"></div>
+                                <div class="td">
+                                    <form th:action="${'/admin/delete/' + user.getId()}" method="post">
+                                        <input type="hidden" name="id" th:value="${user.id}"/>
+                                        <input type="hidden" name="action" value="delete"/>
+                                        <button class="button-delete-user" type="submit">Удалить</button>
+                                        <button class="button-edit-user" type="submit"></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <div class="splitter" ></div>
+    <div th:replace="~{elements/sidebar:: sidebar-right}"></div>
 </div>
 <script th:src="@{/js/resize.js}"> </script>
 <script th:src="@{/js/resize-observer.js}"> </script>
 <script th:src="@{/js/dialog.js}"> </script>
+<script type="module" th:src="@{/js/asd.js}"> </script>
 </body>
 </html>

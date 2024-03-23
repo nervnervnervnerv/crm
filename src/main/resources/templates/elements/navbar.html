@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<html xmlns:th="http://www.thymeleaf.org"  lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Sidebar</title>
 </head>
 <body>
 <nav class="navbar-left" th:fragment="navbar-left">
-
-    <div class="nav-buttons">
+    <div class="nav-buttons-group">
         <a class="nav-link" href="#">
             <div class="image">
                 <span>База</span>
             </div>
         </a>
-
         <a class="nav-link" href="#">
             <div class="image">
                 <span>Статистика</span>
@@ -24,16 +23,21 @@
                 <span>Документы</span>
             </div>
         </a>
-
-        <a class="nav-link" href="/admin">
+        <a class="nav-link" href="/admin" sec:authorize="hasRole('ROLE_ADMIN')">
             <div class="image">
-                <span>Админ панель</span>
+                <span>Пользователи</span>
             </div>
         </a>
     </div>
-</nav>
 
-<nav class="navbar-right" th:fragment="navbar-right">
+    <div class="user-profile">
+        <div class="user-avatar-wrapper">
+        </div>
+        <div class="user-nav-links">
+            <div class="settings"><a href="/settings">Настройки</a></div>
+            <div class="logout"><a href="/logout">Выход</a></div>
+        </div>
+    </div>
 </nav>
 </body>
 </html>

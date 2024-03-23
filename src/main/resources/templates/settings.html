@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="UTF-8">
+  <link th:href="@{/css/navbar.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/root.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/sidebar.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/settings.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="root">
+  <div class="wrapper-left-area">
+    <nav th:replace="~{elements/header:: header}"></nav>
+    <div class="group-navbar-main">
+      <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
+      <main class="main-content">
+        <div class="user-profile-wrapper">
+          <div class="user-profile-header">
+            <h1 class="user-profile-header-text">Изменение профиля</h1>
+          </div>
+          <div class="user-profile-content">
+            <div class="user-profile-avatar-group">
+              <div class="user-profile-avatar-wrapper">
+                <div class="user-profile-avatar">
+                </div>
+              </div>
+              <div class="user-profile-avatar-change">
+                <button>Изменить</button>
+              </div>
+            </div>
+            <div class="user-profile-input-row">
+              <div class="user-profile-input">
+                <label for="first_name">
+                  <span>Имя</span>
+                </label>
+                <input id="first_name" type="text" autocomplete="off">
+              </div>
+              <div class="user-profile-input">
+                <label for="last-name">
+                  <span>Фамилия</span>
+                </label>
+                <input id="last-name" type="text" autocomplete="off">
+              </div>
+            </div>
+            <div class="user-profile-input-row">
+              <div class="user-profile-input">
+                <label for="login">
+                  <span>Логин</span>
+                </label>
+                <input id="login" type="text" autocomplete="off">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-buttons">
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="splitter" ></div>
+  <div th:replace="~{elements/sidebar:: sidebar-right}"></div>
+</div>
+<script th:src="@{/js/resize.js}"> </script>
+<script th:src="@{/js/resize-observer.js}"> </script>
+</body>
+</html>

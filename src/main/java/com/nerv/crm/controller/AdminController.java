@@ -2,19 +2,21 @@ package com.nerv.crm.controller;
 
 import com.nerv.crm.model.User;
 import com.nerv.crm.service.UserService;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
 @AllArgsConstructor
+@PreAuthorize("hasRole('ADMIN')")
 public class AdminController {
     private UserService userService;
-
-    @GetMapping("/admin")
+    @GetMapping(value = "/admin")
     public String admin(Model model) {
         model.addAttribute("users", userService.allUsers());
         return "/admin";
@@ -29,19 +31,12 @@ public class AdminController {
     }
 
     @PostMapping(value = "/admin/add")
-    public String addUser(@Valid @ModelAttribute("user") User user, String action, Model model){
+    public String addUser(@Validated User user, String action, RedirectAttributes redirectAttributes){
         if (action.equals("add")){
-            try {
-                userService.saveUser(user);
-            } catch (DuplicateKeyException ignored) {
-                model.addAttribute("users",userService.allUsers());
-                model.addAttribute("errorMessage", "User already exists.");
-                return "/admin";
-            }
+            userService.saveUser(user);
         }
         return "redirect:/admin";
     }
-
 }
 
 

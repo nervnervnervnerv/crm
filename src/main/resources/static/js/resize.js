@@ -1,16 +1,20 @@
 let root = document.querySelector(".root");
-let main_content = document.querySelector(".main-content");
+let wrapper = document.querySelector(".wrapper-left-area");
 let sidebar = document.querySelector(".sidebar-right");
 let splitter = document.querySelector(".splitter");
+const wrapperMinWidth =  parseInt(window.getComputedStyle(wrapper).width);
+const wrapperMaxWidth =  parseInt(window.getComputedStyle(wrapper).maxWidth);
 
-function resize(mainContent, sidebar, root) {
+
+function resize(wrapper, sidebar, root) {
     let x, w;
-    let wrapperWidth;
-    mainContent.style.width = `${localStorage.getItem('main-container-width')}%`;
+    let rootWidth;
+    wrapper.style.width = `${localStorage.getItem('main-container-width')}%`;
+
     function mousedownHandler(e) {
         x = e.clientX;
-        w = parseFloat(window.getComputedStyle(mainContent).width);
-        wrapperWidth = mainContent.parentElement.offsetWidth;
+        w = parseFloat(window.getComputedStyle(wrapper).width);
+        rootWidth = wrapper.parentElement.offsetWidth;
 
         document.addEventListener("mousemove", mousemoveHandler);
         document.addEventListener("mouseup", mouseupHandler);
@@ -20,11 +24,10 @@ function resize(mainContent, sidebar, root) {
         root.style.userSelect = "none";
 
         let dx = e.clientX-x;
-        let mainContentWidth = (w + dx)/wrapperWidth*100;
-        let sidebarWidth = 100-(w + dx)/wrapperWidth*100;
+        let wrapperWidth = (w + dx)/rootWidth*100;
 
-        if (mainContentWidth > mainContent.style.minWidth && sidebarWidth > sidebar.style.minWidth){
-            mainContent.style.width = `${mainContentWidth}%`;
+        if (wrapperWidth > wrapperMinWidth && wrapperWidth < wrapperMaxWidth){
+            wrapper.style.width = `${wrapperWidth}%`;
         }
     }
 
@@ -36,7 +39,7 @@ function resize(mainContent, sidebar, root) {
 
     splitter.addEventListener("mousedown", mousedownHandler);
 }
-resize(main_content, sidebar, root);
+resize(wrapper, sidebar, root);
 document.addEventListener("DOMContentLoaded", function() {
     root.style.display = "flex";
 });

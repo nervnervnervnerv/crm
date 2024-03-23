@@ -1,23 +1,27 @@
 .navbar-left{
     display: flex;
     flex-direction: column;
-    width: 240px;
-    height: 100%;
+    width: 220px;
+    height: calc(100% - 254px);
+    margin-top: 54px;
+    justify-content: space-between;
+    user-select: none;
 }
 
-.nav-buttons{
-    margin-right: 30px;
+.nav-buttons-group{
+    display: flex;
+    flex-direction: column;
+    /*margin-right: 30px;*/
 }
 
 .nav-link{
     width: 210px;
     height: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     align-items: center;
     position: relative;
     display: flex;
 }
-
 
 .image span{
     margin-left: 18px;
@@ -26,15 +30,12 @@
     position: absolute;
     font-family: "Cascadia Mono", sans-serif;
     font-weight: normal;
-    text-shadow: 0 0 3px  royalblue   , 0 0 5px royalblue   ;
+    text-shadow: 0 0 3px royalblue, 0 0 5px royalblue;
 }
-
 
 .image{
     display: flex;
     align-items: center;
-    /*width: 208px;*/
-    /*height: 35px;*/
     width: 100%;
     height: 100%;
     background: url("../img/system/button.png") no-repeat;
@@ -49,4 +50,45 @@
 .image:hover span{
     text-shadow: 0 0 1px aqua, 0 0 1px aqua;
 
+}
+
+.user-profile{
+    display: flex;
+    margin-bottom: 20px;
+    background:#1faeff58;
+    width: calc(100% - 10px);
+    height: 70px;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid #d6f1f5;
+    border-left: none;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 1px 2px 2px 2px;
+}
+
+.user-avatar-wrapper{
+    border: 1px solid #777;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+.user-nav-links{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 20px;
+    padding: 10px 0;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-shadow: 0 0 3px royalblue, 0 0 3px royalblue;
+    font-family: "Cascadia Mono", sans-serif;
+
+}
+.settings a, .settings a:visited, :active,
+.logout a, .settings a:visited, :active{
+    /*color: #f1f1f1;*/
+    /*TODO ХУЙНЯ С ТЕКСТОМ*/
+    text-align: left;
+    text-decoration: none;
 }

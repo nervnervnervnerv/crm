@@ -1,8 +1,8 @@
 .table-container{
-    padding-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding: 0 70px;
 }
 
 .table {
@@ -15,10 +15,11 @@
     font-size: 1em;
     font-family: "Cascadia Mono", sans-serif;
     overflow: hidden;
+    color: #2b3228;
 }
 .thead {
     display: table-header-group;
-    background: linear-gradient(180deg, #aac8e9 0%, #ecf1f3 100%);
+    background: linear-gradient( to bottom, #bcc6cc, #eee);
     border-radius: 6px;
 }
 
@@ -41,16 +42,47 @@ form{
 .td {
     display:table-cell;
     padding: 12px 20px;
+    border-bottom: 1px solid #aebdc9;
 }
 
 .button-add-user{
-    padding: 5px 20px;
-    margin-bottom: 20px;
-    background:#f5f5f5;
-    border: 1px solid #a1c8d3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
     border-radius: 50px;
-    box-shadow: inset 0 -5px 4px 1px #dde4e9;
+    box-shadow: inset 0 13px 25px rgba(255,255,255,0.5), 0 3px 5px rgba(0,0,0,0.2), 0 10px 13px rgba(0,0,0,0.1);
     font-size: 1em;
+    margin-bottom: 20px;
+    padding: 0.5rem 1.5rem;
+    position: relative;
+    transition: all ease .3s;
+    background: #ced5d8;
+    color: #2b3228;
+}
+
+.button-add-user:before{
+    background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,255,255,0.05) 90%);
+    border-radius: 50px;
+    content:'';
+    height: 18px;
+    width: 87%;
+    left: 6%;
+    position: absolute;
+    top: 1px;
+    transition: all ease .3s;
+}
+
+.button-add-user:hover {
+    box-shadow: inset 0 13px 25px rgba(255,255,255,0.8), 0 3px 5px rgba(0,0,0,0.2), 0 10px 13px rgba(0,0,0,0.2);
+}
+
+.button-edit-user{
+    background: rgb(170,205,233);
+    background: linear-gradient(90deg, rgba(170,205,233,1) 0%, rgba(209,227,241,1) 40%, rgba(209,227,241,1) 60%, rgba(171,206,228,1) 100%);
+    border: 1px solid #627c8d;
+    border-radius: 3px;
+    color: #2f6bb3;
+    padding: 0 10px;
 }
 
 dialog{
@@ -66,17 +98,17 @@ dialog{
     font-family: "Cascadia Mono", sans-serif;
 }
 
-.header-panel{
-    font-size: 1.5em;
-    height: 30px;
-    margin-bottom: 20px;
-}
-
 .add-form-wrapper{
     height: 100%;
     display: flex;
     flex-direction: column;
     padding: 30px;
+}
+
+.header-panel{
+    font-size: 1.5em;
+    height: 30px;
+    margin-bottom: 20px;
 }
 
 .first-input-row,
@@ -87,7 +119,7 @@ dialog{
     margin-bottom: 15px;
 }
 
-.input-data{
+.input-field{
     width: 280px;
     height: 30px;
     padding-left: 5px;
@@ -96,14 +128,13 @@ dialog{
     outline: none;
 }
 
-.input-data::placeholder{
+.input-field::placeholder{
     font-style: italic;
 }
 
 dialog label{
     display: flex;
     flex-direction: column;
-
 }
 
 dialog label span{
@@ -122,6 +153,9 @@ dialog label span{
     background:#ffffff;
     border: 2px solid #aebdc9;
     border-radius: 50px;
-    /*box-shadow: inset 0 -5px 4px 1px #dde4e9;*/
     font-size: 1em;
 }
+
+/*#input-data-username{*/
+/*    border-color: red;*/
+/*}*/

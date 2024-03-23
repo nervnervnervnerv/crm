@@ -21,27 +21,29 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            System.out.println(true);
             throw new UsernameNotFoundException("User not found");
         }
         return user;
     }
 
-//    public User findUserById(Long userId) {
-//        Optional<User> managerFromDb = userRepository.findById(userId);
-//        return managerFromDb.orElse(new User());
-//    }
-
     public List<User> allUsers() {
         return userRepository.findAll();
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) throws DuplicateKeyException, IllegalArgumentException{
+//        if (user == null) {
+//            throw new IllegalArgumentException("User object is null");
+//        }
+//        if (user.getUsername() == null || user.getUsername().isEmpty() ||
+//                user.getPassword() == null || user.getPassword().isEmpty() ||
+//                user.getFirstName() == null || user.getFirstName().isEmpty() ||
+//                user.getLastName() == null || user.getLastName().isEmpty()) {
+//            throw new IllegalArgumentException("Username or password cannot be null or empty");
+//        }
         if(userRepository.existsByUsername(user.getUsername())){
             throw new DuplicateKeyException("Username already exists");
         }
@@ -50,9 +52,10 @@ public class UserService implements UserDetailsService {
     }
 
     public void deleteUser(Long userId) {
-        if (userRepository.findById(userId).isPresent()) {
-            userRepository.deleteById(userId);
-        }
+        userRepository.findById(userId).ifPresent(userRepository::delete);
     }
 
+    public boolean existsByUsername(String username){
+        return userRepository.existsByUsername(username);
+    }
 }

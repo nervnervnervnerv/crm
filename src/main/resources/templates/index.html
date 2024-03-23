@@ -7,16 +7,24 @@
     <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/css/root.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/sidebar.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="root">
-    <nav th:replace="~{elements/header:: header}"></nav>
     <div class="wrapper">
-        <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
-        <nav th:replace="~{elements/navbar:: navbar-right}"></nav>
-        <main>
-        </main>
+        <nav th:replace="~{elements/header:: header}"></nav>
+        <div class="group-navbar-main">
+            <nav th:replace="~{elements/navbar:: navbar-left}"></nav>
+            <main class="main-content">
+
+            </main>
+        </div>
     </div>
+    <div class="splitter" ></div>
+    <div th:replace="~{elements/sidebar:: sidebar-right}"></div>
 </div>
+<script th:src="@{/js/resize.js}"> </script>
+<script th:src="@{/js/resize-observer.js}"> </script>
 </body>
 </html>
